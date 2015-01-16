@@ -1,0 +1,24 @@
+<!-- Tabs Go Here -->
+<section>
+	<ul class="nav nav-pills">
+		<li ng-class="{ active:tab.isSet(1) }">
+			<a href="" ng-click="tab.setTab(1)">About Pokemon</a>
+		</li>
+		<li ng-class="{ active:tab.isSet(2) }">
+			<a href="" ng-click="tab.setTab(2)">Moves</a>
+		</li>
+		<li ng-class="{ active:tab.isSet(3) }">
+			<a href="" ng-click="tab.setTab(3)">Select</a>
+		</li>
+	</ul>
+
+	<!-- Description + Specs Tab's Content -->
+	<battle-description ng-show="tab.isSet(1)"></battle-description>
+
+	<!-- Pokemon Moves Tab's Content -->
+	<battle-moves ng-show="tab.isSet(2)"></battle-moves>
+
+	<!-- Pokemon Select Tab's Content -->
+	<battle-select ng-show="tab.isSet(3)"></battle-select>
+
+</section>

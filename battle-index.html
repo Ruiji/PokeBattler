@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html ng-app="pokeBattle">
 	<head>
-		<link rel="stylesheet" type="text/css" href="pokemon-bazaar.css">
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<link rel="stylesheet" type="text/css" href="pokemon-battler.css">
 		<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript" src="battle-app.js"></script>
 		<script type="text/javascript" src="battle-pokemon.js"></script>
@@ -10,24 +12,23 @@
 	<body ng-controller="BattleAppController as battle" >
 		<header>
 			<h1 class="text-center">Pokemon Battle Simulator!</h1>
-			<h3 class="text-center">Pokemon Battle Simulator!</h3>
+			<h3 class="text-center">Choose two Pokemon and let them dish it out against each other!</h3>
 		</header>
 
 		<!-- Battle Pokemons Container -->
-		<div>
+		<div class="list-group">
 
 			<!-- Pokemon Container -->
-
-			<div>
+			<div class="list-group-item" ng-repeat="pokemonsters in battle" >
+				<h3>{{pokemonsters.name}} <em class="pull-right"><strong>LVL.</strong>{{pokemonsters.level}}</em></h3>
 
 				<!-- Showcase Image -->
-
+				<battle-gallery></battle-gallery>
 
 				<!-- Pokemon Tabs -->
-
+				<battle-tabs></battle-tabs>
 			</div>
 		</div>
-
 		<!-- Preview Battle Pokemon -->
 
 	</body>

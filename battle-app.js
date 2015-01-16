@@ -3,6 +3,10 @@ var app = angular.module('pokeBattle', ['battle-directives', 'ngAudio']);
 app.controller('BattleAppController', function($scope) {
 	$scope.battle = pokemonsters;
 	console.log($scope.battle);
+	$scope.options = {
+  	playlist: ['/battleSound/pokeIntro.mp3', '/battleSound/pokeBattle.mp3', '/battleSound/pokeEro.mp3'],
+  	loop: true
+};
 });
 
 var pokemonsters = [
@@ -12,7 +16,7 @@ var pokemonsters = [
 		maxHitpoints: 384,
 		currentHitpoints : 384,
 		speed : 295, 
-		status : 'Normal'
+		status : 'Normal',
 		description: "A legendary bird Pokemon. It can create blizzards by freezing moisture in the air.",
 		battleImage : "battleImages/articuno1.png",
 		battleImageFront: "battleImages/articunoFront.png",	
@@ -49,7 +53,7 @@ var pokemonsters = [
 		maxHitpoints: 384,
 		currentHitpoints : 384,
 		speed : 328, 
-		status : 'Normal'
+		status : 'Normal',
 		description: "A legendary bird Pokemon that is said to appear from clouds while dropping enormous lightning bolts.",
 		battleImage : "battleImages/zapdos1.png",
 		battleImageFront: "battleImages/zapdosFront.png",	
@@ -86,8 +90,8 @@ var pokemonsters = [
 		maxHitpoints: 384,
 		currentHitpoints : 384,
 		speed : 306, 
-		status : 'Normal'
-		description: "",
+		status : 'Normal',
+		description: "It is said to be the legendary bird of fire. Every flap of its wings creates a dazzling flare of flames.",
 		battleImage : "battleImages/moltres1.png",
 		battleImageFront: "battleImages/moltresFront.png",	
 		battleImageBack: "battleImages/moltresBack",			
