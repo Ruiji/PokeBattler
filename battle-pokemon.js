@@ -24,7 +24,7 @@
 				};
 
 			},
-			controllerAs : "tab"
+			controllerAs : 'tab'
 		};
 	});
 
@@ -38,7 +38,7 @@
           			this.current = imageNumber || 0;
         		};
       		},
-      		controllerAs: "gallery"
+      		controllerAs: 'gallery'
 		};
 	});
 
@@ -53,6 +53,13 @@
 		return{
 			restrict : 'E',
 			templateUrl : 'battle-select.html'
+		}
+	});
+
+	app.directive('battlePreview', function() {
+		return{
+			restrict : 'E',
+			templateUrl : 'battle-preview.html'
 		}
 	});
 

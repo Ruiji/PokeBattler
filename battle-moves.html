@@ -6,4 +6,48 @@
 			<blockquote>{{move.moveDescription}}</blockquote>
 		</li>
 	</ul> 
+	<div>
+		<form name="addMoveForm" ng-controller="MoveController as moveCtrl" ng-submit="addMove(moveToAdd, pokemonsters)" accept-charset="utf-8">
+
+			<!-- Add Move Form -->
+				<h4>Add Move</h4>
+				<fieldset class="form-group"> 
+					<h5>Name</h5>
+					<input ng-model="moveToAdd.moveName" class="form-control" title="Name" name="Name"placeholder="#Example: Hyperbeam"/>
+				</fieldset>
+
+				<fieldset class="form-group"> 
+					<h5>Type</h5>
+					<input ng-model="moveToAdd.moveType" type="radio" value="Attack" title="Type" name="Type"/> Attack
+					<br>
+					<input ng-model="moveToAdd.moveType" type="radio" value="Heal" title="Type" name="Type"/> Heal
+				</fieldset>
+
+				<fieldset class="form-group"> 
+					<h5>Power</h5>
+					<input ng-model="moveToAdd.power" type="number" min="10" max="150" class="form-control" title="Power" name="Power" placeholder="Attack: no. btw 10 and 150. Heal: no. btw 10 and 100"/>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<h5>Accuracy</h5>
+					<input ng-model="moveToAdd.accuracy" type="number" min="1" max="100" class="form-control" title="Accuracy" name="Accuracy" placeholder="a no. between 1 and 100 (Heal is always 100)" />
+				</fieldset>
+
+				<fieldset class="form-group"> 
+					<h5>PP</h5>
+					<input ng-model="moveToAdd.pp" type="number" min="1" max="50" class="form-control" title="PP" name="PP" placeholder="The max amount of times a move can be used in battle."/>
+				</fieldset>
+
+				<fieldset class="form-group"> 
+					<h5>Description</h5>
+					<textarea ng-model="moveToAdd.moveDescription" class="form-control" title="Description" name="Description" placeholder="#Example: This beam will mess you up so hard your ancestors will feel it.">
+					</textarea>
+				</fieldset>
+
+				<fieldset class="form-group">
+					<input type="submit" class="btn btn-primary pull-right" value="Add Move"/>
+				</fieldset>	
+			</form>
+		</div>
 </div>
+	

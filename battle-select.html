@@ -1,7 +1,7 @@
 <!-- Pokemon Select Tab's Content -->
-<form name="selectForm" ng-submit="selectPokemon(pokemonster)" accept-charset="utf-8">
+<form name="selectForm" ng-controller="SelectController as selectCtrl" ng-submit="setPokemon(pokemonsters)" accept-charset="utf-8">
 	
-	<h4> Do you want to select this Pokemon?</strong>?</h4>
+	<h4> Do you want to select this Pokemon?</h4>
 	
 	<fieldset class="form-group">
 	      <input type="submit" class="btn btn-primary pull-right" 

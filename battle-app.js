@@ -1,12 +1,90 @@
-var app = angular.module('pokeBattle', ['battle-directives', 'ngAudio']);
+var app = angular.module('pokeBattle', ['battle-directives']);
+var pokemon1;
+var pokemon2;
 
 app.controller('BattleAppController', function($scope) {
 	$scope.battle = pokemonsters;
-	console.log($scope.battle);
-	$scope.options = {
-  	playlist: ['/battleSound/pokeIntro.mp3', '/battleSound/pokeBattle.mp3', '/battleSound/pokeEro.mp3'],
-  	loop: true
-};
+});
+
+app.controller('SelectController', function($scope) {
+	$scope.getIndex = function(pokemonster) {
+		index = $scope.battle.indexOf(pokemonster);
+		return index;
+	}; 
+
+	$scope.setPokemon = function(pokemonster) {
+		index = $scope.getIndex(pokemonster);
+		if (pokemon1 == null) {
+			pokemon1 = $scope.battle[index];
+		} else if (pokemon2 == null) {
+			pokemon2 = $scope.battle[index];
+		} else {
+		alert ("Both Pokemon have allready been chosen!")
+		}
+	};
+
+	$scope.removeSetPokemon = function(toRemove) {
+		if (toRemove != 1 || toRemove != 2) {
+			alert("The selected Pokemon does not exist.")
+		} else if (toRemove == 1) {
+			pokemon1 = null;
+		} else if (toRemove == 2) {
+			pokemon2 = null;
+		}
+	};
+});
+
+app.controller('MoveController', function($scope) {
+	$scope.battleMoves = {};
+
+	$scope.getIndex = function(pokemonster) {
+		index = $scope.battle.indexOf(pokemonster);
+		return index;
+	}; 
+
+	$scope.addMove = function(moveToAdd, pokemonster) {
+		index = $scope.getIndex(pokemonster);
+		if ($scope.addMoveValidation() == true) {
+			$scope.battle[index].battleMoves.push(moveToAdd);
+			alert("Move is succesvol toegevoegd!");	
+			$scope.battleMoves = {};		
+		}
+	};
+
+	$scope.addMoveValidation = function() {
+		console.log(1);
+	    var mName = document.forms["addMoveForm"]["Name"].value;
+	    var mType = document.forms["addMoveForm"]["Type"].value;
+	    var mPower = document.forms["addMoveForm"]["Power"].value;
+	    var mAccuracy = document.forms["addMoveForm"]["Accuracy"].value;
+	    var mPP = document.forms["addMoveForm"]["PP"].value;
+	    var mDescription = document.forms["addMoveForm"]["Description"].value;
+	    
+	    if (mName == null || mName == ""){
+	    	console.log(2);
+	    	alert("Move name must be filled out!");
+	    	return false;
+	    } else if (mType == null || mType == "" ){
+	    	console.log(3);
+	    	alert("Please choose Attack or Heal!");
+	    	return false;
+	    } else if (mType == "Heal" && mPower > 100 ){
+	    	console.log(4);
+	    	alert("Power cannot be greater than 100 if Type is Heal!");
+	    	return false;
+	    } else if (mType == "Heal" && mAccuracy != 100){
+	    	console.log(5);
+	    	alert("Accuracy can only be 100 if Type is Heal!")
+	    	return false;
+	    } else if (mDescription == null || mDescription == ""){
+	    	console.log(6);
+	    	alert("Description must be filled out!")
+	    	return false;
+	    } else {
+	    	console.log(7);
+	    	return true;
+	    }
+	};
 });
 
 var pokemonsters = [
