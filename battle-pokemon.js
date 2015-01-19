@@ -58,7 +58,7 @@
 
 	app.directive('battlePreview', function() {
 		return{
-			restrict : 'E',
+			restrict : 'A',
 			templateUrl : 'battle-preview.html'
 		}
 	});
