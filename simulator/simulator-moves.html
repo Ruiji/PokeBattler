@@ -1,0 +1,14 @@
+<!-- Select Move Content -->
+<div>
+<ul>
+	<li ng-repeat="move in getBattleMoves()" >
+		<form name="selectForm" ng-submit="tab.setTab(2)" accept-charset="utf-8">
+			<fieldset>
+				<input type="submit" value="{{move.moveName}}"/>
+			</fieldset>
+		</form>
+		<h5>{{move.moveDescription}}</h5>
+		<h5>{{move.currentpp}} / {{move.maxpp}} </h5>
+	</li>
+	</ul> 
+</div>

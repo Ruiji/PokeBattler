@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="battleSimulator">
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="simulator.js"></script>
+		<script type="text/javascript" src="sim-directives.js"></script>
+	</head>
+	<body ng-controller="SimulatorController as sim">
+		<header>
+			<h1 align="center">Are you ready to rumble?</h1>
+			<h3 align="center">Pokemon fight to the death!</h3>
+		</header>
+
+		<div>
+			<!-- Turn Container -->
+			<simulator-turns></simulator-turns>
+
+			<div>
+				<!-- Pokemon 1 Container -->
+				<simulator-first></simulator-first>
+
+				<!-- Pokemon 2 Container -->
+				<simulator-second></simulator-second>
+			</div>
+		</div>
+
+		<!-- Message Bar (Tabs) Container  -->
+		<simulator-tabs></simulator-tabs>
+	</body>
+</html>
